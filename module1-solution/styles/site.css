@@ -1,0 +1,15 @@
+.message { font-size: 1.3em; font-weight: bold; }
+
+.message:not(.nowarn) {
+    color: maroon;
+}
+.message.nowarn {
+    color: darkolivegreen;
+}
+
+input.highlight:not(.nowarn) {
+    border-color: red;
+}
+input.highlight.nowarn {
+    border-color: green;
+}
