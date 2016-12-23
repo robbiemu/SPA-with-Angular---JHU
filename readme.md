@@ -1,5 +1,5 @@
 ## details to follow
-class 5 of JHU full stack dev with Coursera
+class 5/5 of JHU full stack dev with Coursera
 
 --
 
