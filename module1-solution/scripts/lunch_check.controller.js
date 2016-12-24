@@ -19,7 +19,6 @@ Implement this case item 1, item2,,item3 or this case item 1, item2, ,item3 as n
             */
             let rx = /(\s*?[^\,\s]+(?:\s[^\,])*\s*?)/g;
             $scope.noFoods = ($scope.rawFoods.match(rx) || []).length
-            console.log($scope.noFoods)
         }
 
         $scope.foodsCheck = function () {
