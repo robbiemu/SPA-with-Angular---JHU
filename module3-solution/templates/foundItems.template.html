@@ -1,0 +1,20 @@
+<div id="found-items-template">
+  <br />
+  <div class="items-found" ng-show="fic.found.length>0">
+    <h1>Menu</h1>
+    <i>{{ fic.found.length }} items found</i>
+
+    <ul class="menu-items">
+      <li ng-repeat="item in fic.found">
+          <div id="item:{{item.id}}" class="id_field">{{ item.id }}</div>
+          <h2>{{ item.short_name }} {{ item.name }}</h2>
+          <p><i>{{ item.description }}</i></p>
+          <div class="price">Large: {{ item.price_large | currency }} per {{ item.large_portion_name }} </div>
+          <div class="price">Small: {{ item.price_small | currency }} per {{ item.small_portion_name }}</div>
+          <button ng-click="fic.onRemove({index: $index})">Don't want this one!</button>
+      </li>
+    </ul>
+  </div>
+  <div class="no-items-found" ng-show="fic.noItemsFound()">No items found</div>
+
+</div>
