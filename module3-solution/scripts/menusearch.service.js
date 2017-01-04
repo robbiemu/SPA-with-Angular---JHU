@@ -7,8 +7,11 @@
     var service = this
     
     service.getMatchedMenuItems = function (searchTerm) {
-      return (/^\s*$/.test(searchTerm)) ?
-        new Promise((resolve) => { resolve([]); }) :
+      let skip = []
+      skip.isSkippingSearch = true
+      
+      return (searchTerm === undefined || /^\s*$/.test(searchTerm)) ?
+        new Promise((resolve) => { resolve(skip) }) :
         $http.get(RETAUARANT_API_URL).then(function (result) {
           let r = new RegExp(searchTerm)
 

@@ -14,15 +14,18 @@
       };
 
       self.noItemsFound = function () {
-        console.log('noItemsFound called')
         return self.searched && self.found.length === 0
       }
 
       $scope.searchAPI = function () {
         MenuSearchService.getMatchedMenuItems($scope.searchTerm)
           .then(function (data) {
+           // console.dir(data)
             self.searched = true
             self.found = data
+
+            if (data.isSkippingSearch)
+              $scope.$apply()  
           })
       }
 
