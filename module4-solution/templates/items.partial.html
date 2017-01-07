@@ -1,0 +1,9 @@
+<h1>{{$ctrl.category.name}}</h1>
+<ul>
+  <li ng-repeat="item in $ctrl.items">
+    <h3><big>{{item.short_name}}</big> {{item.name}}</h3>
+    <p>{{item.description}}</p>
+    <div class="left">Large: {{item.price_large | currency}}</div>
+    <div class="right">Small: {{item.price_small | currency}}</div>
+  </li>
+</ul>

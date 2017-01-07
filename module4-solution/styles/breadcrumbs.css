@@ -1,0 +1,15 @@
+ol.breadcrumb {
+  list-style: none;
+  font-size: 12pt;
+  font-weight: 100;
+}
+
+ol.breadcrumb > li {
+  display: inline;
+  margin-left: 1rem;
+}
+ol.breadcrumb > li span {
+  font-weight: 900;
+  user-select: none;
+  cursor:default;
+}
