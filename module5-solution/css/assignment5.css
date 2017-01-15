@@ -1,0 +1,15 @@
+datalist, datalist > option {
+    display: none !important;
+}
+
+input[list] {
+    color: #555;
+}
+
+p.help-block {
+    color: blanchedalmond;
+    text-shadow: 1px 1px 2px rgba(255, 0, 0, 1);
+}
+.has-error {
+    border-color:red !important;
+}

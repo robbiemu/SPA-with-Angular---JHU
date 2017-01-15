@@ -1,0 +1,57 @@
+<div class="container">
+  <h2 id="signup-title" class="text-center">Menu Categories</h2>
+    <form name="signupForm" ng-submit="signupCtrl.submitForm(signupForm.$valid)" novalidate>
+        <form-group>
+            <label>First Name
+                <input ng-model="signupCtrl.signup.name.first" name="firstname" 
+                type="text" class="form-control" ng-class="{'has-error': signupForm.firstname.$invalid && !signupForm.firstname.$pristine}" 
+                placeholder="First Name" 
+                ng-pattern="signupCtrl.rx.name" required />
+            </label>
+            <label>Last Name
+                <input ng-model="signupCtrl.signup.name.last" name="lastname" 
+                type="text" class="form-control" ng-class="{'has-error': signupForm.lastname.$invalid && !signupForm.lastname.$pristine}" 
+                placeholder="Last Name" 
+                ng-pattern="signupCtrl.rx.name" required />
+            </label>
+        </form-group>
+        <p ng-show="(signupForm.firstname.$invalid && !signupForm.firstname.$pristine) || (signupForm.lastname.$invalid && !signupForm.lastname.$pristine)" class="help-block">You name is required.</p>
+
+        <label>Email
+            <input ng-model="signupCtrl.signup.email" name="email" 
+            type="email" class="form-control" ng-class="{'has-error': signupForm.email.$invalid && !signupForm.email.$pristine}" 
+            placeholder="example@mail.com"
+            ng-pattern="signupCtrl.rx.email" required />
+        </label>
+        <p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine" class="help-block">Enter a valid email.</p>
+
+        <label>Telephone
+            <input ng-model="signupCtrl.signup.telephone" name="telephone" 
+            type="text" class="form-control" ng-class="{'has-error': signupForm.telephone.$invalid && !signupForm.telephone.$pristine}" 
+            placeholder="xxx-xxx-xxxx" 
+            ng-pattern="signupCtrl.rx.telephone" required />
+        </label>
+        <p ng-show="signupForm.telephone.$invalid && !signupForm.telephone.$pristine" class="help-block">Please enter your mobile or other telephone number.</p>
+
+        <hr />
+
+        <label>Favorite
+            <input name="favorite" ng-model="signupCtrl.signup.favorite" 
+            type="text" list="favorite" 
+            ng-change="signupCtrl.noteFavChange()" dishes="signupCtrl.dishes" validatefav />
+            <datalist name="favorite" id="favorite"
+                class="form-control" ng-class="{'has-error': signupForm.favorite.$invalid && !signupForm.favorite.$pristine}" 
+                required>
+                
+                <option ng-repeat="dish in signupCtrl.dishes" 
+                    value="{{dish.short_name}}">{{dish.name}}</option>
+            </datalist>
+        </label>
+        <p ng-if="!signupCtrl.warnInvalidFav && signupForm.favorite.$invalid && !signupForm.favorite.$pristine" class="help-block">Please type (or just select) a valid shortname for your favorite dish.</p>
+        <p ng-if="signupCtrl.warnInvalidFav" class="help-block">No such menu number exists.</p>
+
+        <hr />
+
+        <button class="btn btn-primary" type="submit" ng-disabled="signupCtrl.checkValid(signupForm)">Submit</button>
+    </form>
+</div>

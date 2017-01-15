@@ -1,0 +1,27 @@
+<div class="container">
+    <div ng-if="myinfoCtrl.user !== undefined">
+        <h1>Registered User Info</h1>
+        <div id="favorite_item">
+            <div id="imageTile"></div>
+            <style>
+                #imageTile:before {
+                    content: url({{myinfoCtrl.favorite.image}});
+                }
+                #imageTile {
+                    margin-right: auto; margin-left: auto;
+                    display: inline-block;
+                }
+            </style>
+            <h3><strong>{{myinfoCtrl.favorite.short_name}}</strong> {{myinfoCtrl.favorite.name}}</h3>
+            <p>{{myinfoCtrl.favorite.description}}</p>
+        </div>
+        <p id="name"><span id="firstname">{{myinfoCtrl.user.name.first}}</span>
+        <span id="lastname">{{myinfoCtrl.user.name.last}}</span></p>
+        <p id="email">{{myinfoCtrl.user.email}}</p>
+        <p id="telephone">{{myinfoCtrl.user.telephone}}</p>
+    </div>
+    <div ng-else>
+        <h1>Register</h1>
+        <p>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></p>
+    </div>
+</div>
